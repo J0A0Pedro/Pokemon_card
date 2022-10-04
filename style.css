@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: rgba(74, 74, 255, 0.185);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 1px solid rgb(255, 220, 220);
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    width: 30%;
+    margin: 1%;
+    padding: 1%;
+
+    background: linear-gradient(to bottom, rgb(255, 60, 60), rgb(138, 16, 0));
+    box-shadow: inset 1px 1px 3px 3px rgb(255, 138, 138);
+}
+
+.card hr {
+    border: 1px solid rgb(92, 92, 92);
+    margin-bottom: 1%;
+
+}
+
+
+/*ESTILOS DOS STATUS*/
+
+.namePK {
+    font-weight: bold;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.068);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 3rem;
+}
+
+.type {
+    font-weight: bold;
+    color: rgb(255, 255, 117);
+}
+
+.base-experience {
+    font-weight: bold;
+    color: rgb(101, 116, 255);
+}
+
+.base-stat {
+    font-weight: bold;
+    color: rgb(108, 255, 108);
+}
+
+/**/
+
+
+@media(max-width:990px) {
+    .namePK {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width:750px) {
+    .card {
+        background-color: #333;
+        width: 50%;
+    }
+}
+
+@media (max-width:550px) {
+    .card {
+        /* background: rgba(0, 0, 255, 0.349); */
+        width: 70%;
+    }
+}
