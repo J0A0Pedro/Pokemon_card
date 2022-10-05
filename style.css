@@ -76,11 +76,11 @@ p {
     box-shadow: inset 1px 1px 3px 3px rgb(255, 138, 138);
 }
 
-.card hr {
+/* .card hr {
     border: 1px solid rgb(92, 92, 92);
     margin-bottom: 1%;
 
-}
+} */
 
 
 /*ESTILOS DOS STATUS*/
@@ -134,7 +134,11 @@ p {
 
 @media (max-width:550px) {
     #n-pk {
-        width: 70%;
+        width: 60%;
+    }
+
+    button {
+        width: 15%;
     }
 
     .card {

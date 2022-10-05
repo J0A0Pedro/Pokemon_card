@@ -31,7 +31,13 @@ function quantidadePK(){
 
     
     const aviso = document.querySelector("#aviso");
-    if(inputValue.value.length <= 0 || inputValue.value == ""){
+
+    function isNumber(val){
+        return typeof val === "string"
+      }
+      //TENTAR FILTRAR PRA NÃO PASSAR STRING NA PESQUISA, APENAS NUMERO: || isNumber(inputValue.value) == true 
+
+    if(inputValue.value.length <= 0 ){
         // alert("Digite um numero!")
         // console.log(inputValue.value)
        
@@ -42,6 +48,8 @@ function quantidadePK(){
     aviso.innerText = ""
     inputValue.value = "";
     inputValue.focus();
+
+
 
    
 
@@ -107,12 +115,49 @@ function quantidadePK(){
                 cardPK.appendChild(exp);
 
                 //STATUS BÁSICO
+                //PEGANDO HP
                 const baseStatstxt= pokemonSingle.stats[0].base_stat
                 const stats = document.createElement("p");
                 stats.classList.add("base-stat")
-                stats.innerText = `Base Stats: ${baseStatstxt}`
+                stats.innerText = `HP: ${baseStatstxt}`
                 cardPK.appendChild(stats)
-                
+
+
+                //PEGANDO ATTACK
+                const baseStatstxt2= pokemonSingle.stats[1].base_stat
+                const stats2 = document.createElement("p");
+                stats2.classList.add("base-stat")
+                stats2.innerText = `Attack: ${baseStatstxt2}`
+                cardPK.appendChild(stats2)
+
+
+                //PEGANDO DEFENSE
+                const baseStatstxt3= pokemonSingle.stats[2].base_stat
+                const stats3 = document.createElement("p");
+                stats3.classList.add("base-stat")
+                stats3.innerText = `Defense: ${baseStatstxt3}`
+                cardPK.appendChild(stats3)
+
+                //PEGANDO SPECIAL-ATTACK
+                const baseStatstxt4= pokemonSingle.stats[3].base_stat
+                const stats4 = document.createElement("p");
+                stats4.classList.add("base-stat")
+                stats4.innerText = `Special-Attack: ${baseStatstxt4}`
+                cardPK.appendChild(stats4)
+
+                //PEGANDO SPECIAL-DEFENSE
+                const baseStatstxt5= pokemonSingle.stats[4].base_stat
+                const stats5 = document.createElement("p");
+                stats5.classList.add("base-stat")
+                stats5.innerText = `Special-Defense: ${baseStatstxt5}`
+                cardPK.appendChild(stats5)
+
+                //PEGANDO SPEED 
+                const baseStatstxt6= pokemonSingle.stats[5].base_stat
+                const stats6 = document.createElement("p");
+                stats6.classList.add("base-stat")
+                stats6.innerText = `Speed: ${baseStatstxt6}`
+                cardPK.appendChild(stats6)
                 console.log(pokemonSingle);
 
 
