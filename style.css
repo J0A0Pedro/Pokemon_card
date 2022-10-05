@@ -9,10 +9,51 @@ html,
 body {
     height: 100%;
     width: 100%;
+
 }
 
 body {
-    background-color: rgba(74, 74, 255, 0.185);
+    background-color: rgba(88, 88, 255, 0.329);
+}
+
+#n-pk {
+    width: 30%;
+    height: 30px;
+    padding: .5%;
+    margin-left: 2%;
+    outline: none;
+    border-radius: 8px;
+}
+
+button {
+    border: none;
+    background-color: rgb(88, 88, 255);
+    width: 5%;
+    height: 30px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(0, 0, 100);
+}
+
+.hide {
+    display: none;
+}
+
+
+h1 {
+    color: orange;
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+h1,
+p {
+    text-align: center;
 }
 
 .container {
@@ -71,6 +112,14 @@ body {
 
 
 @media(max-width:990px) {
+    #n-pk {
+        width: 50%;
+    }
+
+    button {
+        width: 10%;
+    }
+
     .namePK {
         font-size: 2rem;
     }
@@ -84,6 +133,10 @@ body {
 }
 
 @media (max-width:550px) {
+    #n-pk {
+        width: 70%;
+    }
+
     .card {
         /* background: rgba(0, 0, 255, 0.349); */
         width: 70%;

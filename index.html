@@ -11,10 +11,17 @@
 </head>
 
 <body>
-    <h1 style="text-align: center; color:orange; font-weight:bold; font-size:4rem;">Pokedex</h1>
+    <h1>Pokedex</h1>
+    <p style="padding:1%;" id="aviso">Atenção: pesquise um número no campo e os cards aparecerão</p>
 
-    <input style="width:30%" type="text" name="n-pk" id="n-pk" placeholder="Quantidade de cards pokemon">
-    <button type="submit">Procurar</button>
+
+    <input type="text" name="n-pk" id="n-pk" maxLength="4" placeholder="Quantidade de cards pokemon">
+    <button type="submit" class="" id="btn" onclick="quantidadePK()">Buscar</i></button>
+    <!-- removi o botao com id quantidadePK e criei uma função que tem o mesmo nome
+     e é chamada em outra função com evento de escuta que substituiu o botão manual -->
+
+
+
     <!-- <div class="main">
         <h2>Pokedex</h2>
         <br>
@@ -28,7 +35,7 @@
 
 
         <!--Modelo do card-->
-        <div class="card">
+        <!-- <div class="card">
             <h3>Nome</h3>
             <hr>
             <div>
@@ -38,7 +45,7 @@
             </p>
 
             <button onclick="fv()">Favorite</button>
-        </div>
+        </div> -->
 
 
 
