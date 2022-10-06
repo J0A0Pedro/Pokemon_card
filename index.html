@@ -15,10 +15,14 @@
     <p style="padding:1%;" id="aviso">Atenção: pesquise um número no campo e os cards aparecerão</p>
 
 
-    <input type="text" name="n-pk" id="n-pk" maxLength="4" placeholder="Quantidade de cards pokemon">
-    <button type="submit" class="" id="btn" onclick="quantidadePK()">Buscar</i></button>
+    <input type="text" id="n-pk" maxLength="4" placeholder="Quantidade de cards pokemon">
+    <button type="submit" id="btn" onclick="quantidadePK()">Buscar</i></button>
     <!-- removi o botao com id quantidadePK e criei uma função que tem o mesmo nome
      e é chamada em outra função com evento de escuta que substituiu o botão manual -->
+
+    <!--TENTANDO CRIAR OUTRO INPUT PARA PESQUISAR POKEMON PELO NOME-->
+    <!-- <input type="text" id="name-pk" placeholder="Pesquisar nome do pokemon">
+    <button type="button" onclick="filtrar()">Filtrar</button> -->
 
 
 
@@ -47,23 +51,22 @@
             <button onclick="fv()">Favorite</button>
         </div> -->
 
+        <h4 style="text-align:center;">Pokemons Salvos:</h4>
+        <div id="pokemon-salvo">
+            <!--Onde os pokemons salvos irão aparecer-->
 
+        </div>
 
         <div id="pokemon-box">
             <!--Onde os cards irão aparecer-->
         </div>
 
-
-        <div id="lista-favoritos">
-            <!--Onde os pokemons favoritados irão aparecer-->
-        </div>
     </div>
 
-    <script>
 
-        function fv() {
-            alert("Favoritou este pokemon!")
-        }
+
+
+    </script>
     </script>
 
 </body>

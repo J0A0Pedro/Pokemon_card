@@ -17,7 +17,7 @@ body {
 }
 
 #n-pk {
-    width: 30%;
+    width: 22%;
     height: 30px;
     padding: .5%;
     margin-left: 2%;
@@ -46,7 +46,8 @@ button:hover {
 
 
 h1 {
-    color: orange;
+    color: rgb(255, 196, 0);
+    background-color: rgb(27, 27, 27);
     font-weight: bold;
     font-size: 4rem;
 }
@@ -63,6 +64,13 @@ p {
     flex-wrap: wrap;
 }
 
+#pokemon-salvo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .card {
     border: 1px solid rgb(255, 220, 220);
     color: #fff;
@@ -72,8 +80,21 @@ p {
     margin: 1%;
     padding: 1%;
 
-    background: linear-gradient(to bottom, rgb(255, 60, 60), rgb(138, 16, 0));
+    background: linear-gradient(to bottom, rgb(255, 40, 40), rgb(138, 16, 0));
     box-shadow: inset 1px 1px 3px 3px rgb(255, 138, 138);
+}
+
+.card-salvo {
+    border: 1px solid rgb(255, 220, 220);
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    width: 30%;
+    margin: 1%;
+    padding: 1%;
+
+    background: linear-gradient(to bottom, rgb(60, 209, 255), rgb(17, 81, 177));
+    box-shadow: inset 1px 1px 3px 3px rgb(138, 255, 239);
 }
 
 /* .card hr {
@@ -95,25 +116,46 @@ p {
 
 .type {
     font-weight: bold;
-    color: rgb(255, 255, 117);
+    color: rgb(255, 255, 70);
 }
 
 .base-experience {
     font-weight: bold;
-    color: rgb(101, 116, 255);
+    color: rgb(0, 255, 242);
 }
 
 .base-stat {
     font-weight: bold;
-    color: rgb(108, 255, 108);
+    color: rgb(68, 255, 68);
+}
+
+#pokemon-salvo {
+    display: flex;
+    color: Red;
+    /* color: transparent; */
+}
+
+.btn-add {
+    width: 30%;
+    height: 30px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.btn-remove {
+    background-color: rgb(255, 88, 88);
+    width: 30%;
+    height: 30px;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 /**/
 
 
-@media(max-width:990px) {
+@media(max-width:999px) {
     #n-pk {
-        width: 50%;
+        width: 35%;
     }
 
     button {
@@ -130,6 +172,14 @@ p {
         background-color: #333;
         width: 50%;
     }
+
+    .card-salvo {
+        width: 40%;
+    }
+
+    #n-pk {
+        width: 50%;
+    }
 }
 
 @media (max-width:550px) {
@@ -143,6 +193,10 @@ p {
 
     .card {
         /* background: rgba(0, 0, 255, 0.349); */
+        width: 70%;
+    }
+
+    .card-salvo {
         width: 70%;
     }
 }
