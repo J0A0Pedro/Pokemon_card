@@ -131,8 +131,8 @@ p {
 
 #pokemon-salvo {
     display: flex;
-    color: Red;
-    /* color: transparent; */
+
+    color: red;
 }
 
 .btn-add {

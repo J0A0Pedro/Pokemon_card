@@ -1,20 +1,10 @@
-
-// const url = ' https://pokeapi.co/api/v2/pokemon/?limit=5'
-// const url = ' https://pokeapi.co/api/v2/pokemon/?limit=9'
-// https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20
-//?offset=0&limit=20 define em quantos começa e termina
-
-
-// const url2 = "https://pokeapi.co/api/v2/pokemon/?limit=";
-// const inputValue = document.getElementById("n-pk");
-
 const inputValue = document.getElementById("n-pk");
 
 //RESPONSÁVEL POR FAZER A PESQUISA E SUBSTITUIU O BTN DE "BUSCAR"
 // inputValue.addEventListener("keyup", () => {
 //     setTimeout( () => {
 //         quantidadePK();
-//     },3500)
+//     },200)
     
 // })
 //FIM//
@@ -29,272 +19,227 @@ function quantidadePK(){
         const url2 = "https://pokeapi.co/api/v2/pokemon/?limit=";
         const inputValue = document.getElementById("n-pk");
         let url = url2 + inputValue.value;
-    // alert(url);
+    
 
-    // function addPokemonFavorito(){
+   
+        const aviso = document.querySelector("#aviso");
+
+        if(inputValue.value.length <= 0 ){
         
-
-    //     fetch(url).then( (res) => {
-    //         return res.json()
-    //     }).then( (data) => {
-
-    //         let salvos = [];
-    //         let data2 = data.results.name
-
-    //         data2.forEach( (pkfv) => {
-                
-    //             const pokemonSalvo = document.querySelector("#pokemon-salvo");
-    //             const nomeS = document.createElement("h1");
-    //             nomeS.innerText = `${pkfv.name}`;
-    //             // salvos.push();
-    //             // alert(salvos);
-                
-    //             pokemonSalvo.appendChild(nomeS);
-
-    //             alert(data.results.name)
-    //         })
-
-           
-
-    //     })
-    // }
-
-
-    const aviso = document.querySelector("#aviso");
-
-    function isNumber(val){
-        return typeof val === "string"
-      }
-      //TENTAR FILTRAR PRA NÃO PASSAR STRING NA PESQUISA, APENAS NUMERO: || isNumber(inputValue.value) == true 
-
-    if(inputValue.value.length <= 0 ){
-        // alert("Digite um numero!")
-        // console.log(inputValue.value)
-       
-        aviso.innerText = "Digite um número";
-        url2 = "";
-        
-    }
-    aviso.innerText = ""
-    inputValue.value = "";
-    inputValue.focus();
+            aviso.innerText = "Digite um número";
+            url2 = "";
+            
+        }
+        aviso.innerText = ""
+        inputValue.value = "";
+        inputValue.focus();
 
 
 
    
 
-    fetch(url).then( (res) => {
-        return res.json();
-    }).then( (data) => {
-        console.log("Primeiro:")
-        console.log(data);
+        fetch(url).then( (res) => {
+            return res.json();
+        }).then( (data) => {
+            console.log("Primeiro:")
+            console.log(data);
 
-        
+            
 
-        const boxPokemon = document.querySelector("#pokemon-box");
-        boxPokemon.classList.add("container");
+            const boxPokemon = document.querySelector("#pokemon-box");
+            boxPokemon.classList.add("container");
 
-        boxPokemon.innerHTML = ""
+            boxPokemon.innerHTML = ""
 
-        data.results.forEach( (pk) => {
-            console.log(pk);
+            data.results.forEach( (pk) => {
+                console.log(pk);
 
-            fetch(pk.url)
-            .then( response => response.json())
-            .then(pokemonSingle => {
+                fetch(pk.url)
+                .then( response => response.json())
+                .then(pokemonSingle => {
 
-                //AQUI É ONDE EU VOU VARRER TODOS O NOMES DO ARRAY E CONFIRMAR QUAL BATE
-                alert(pk.name)
+                    //AQUI É ONDE EU VOU VARRER TODOS O NOMES DO ARRAY E CONFIRMAR QUAL BATE
+                    // alert(pk.name)
 
-                // let termo = pk.name.val().toUpperCase()//transformei tudo em maiusculo
-                // $("#pokemon-box").each( () => {
-                //     if($(this).html().toUpperCase().indexOf(termo) === -1){
-                //         $(this).hide()
-                //     }
-                // })
-                // alert(termo)
-
-
-
-                //Criando o card:
-                const cardPK = document.createElement("div");
-                cardPK.classList.add("card");
-                boxPokemon.appendChild(cardPK);
-
-                //Criando o nome do pokemon: 
-                const namePK = document.createElement("h3");
-                namePK.classList.add("namePK")
-                namePK.innerText = pk.name;
-                cardPK.appendChild(namePK);
-
-                //Criando a imagem do pokemon da frente:
-                const imgF = pokemonSingle.sprites.front_default
-                const imagePK = document.createElement("div");
-                imagePK.innerHTML = `<img src=${imgF}>`;
-                cardPK.appendChild(imagePK);
-
-                //PEGANDO O TIPO DO POKEMON:
-                
-                const txtpk = pokemonSingle.types[0].type.name
-                // let txtpk2 = pokemonSingle.types[1].type.name
-
-                const typePK = document.createElement("p");
-                typePK.classList.add("type");
-                typePK.innerText = `Type: ${txtpk}`
-                // cardPK.appendChild(typePK);
-
-                if(pokemonSingle.types.length >=2){
-                    const txtpk2 = pokemonSingle.types[1].type.name;
-                    console.log(txtpk2);
-                    typePK.innerText += ` | ${txtpk2}`
-                    // cardPK.appendChild(typePK);
-                }
-                cardPK.appendChild(typePK);
-
-                //EXPERIENCIA BÁSICA:
-                const baseExptxt= pokemonSingle.base_experience
-                const exp = document.createElement("p");
-                exp.classList.add("base-experience")
-                exp.innerText = `Base Experience: ${baseExptxt}`
-                cardPK.appendChild(exp);
-
-                //STATUS BÁSICO
-                //PEGANDO HP
-                const baseStatstxt= pokemonSingle.stats[0].base_stat
-                const stats = document.createElement("p");
-                stats.classList.add("base-stat")
-                stats.innerText = `HP: ${baseStatstxt}`
-                cardPK.appendChild(stats)
+                    // let termo = pk.name.val().toUpperCase()//transformei tudo em maiusculo
+                    // $("#pokemon-box").each( () => {
+                    //     if($(this).html().toUpperCase().indexOf(termo) === -1){
+                    //         $(this).hide()
+                    //     }
+                    // })
+                    // alert(termo)
 
 
-                //PEGANDO ATTACK
-                const baseStatstxt2= pokemonSingle.stats[1].base_stat
-                const stats2 = document.createElement("p");
-                stats2.classList.add("base-stat")
-                stats2.innerText = `Attack: ${baseStatstxt2}`
-                cardPK.appendChild(stats2)
 
-
-                //PEGANDO DEFENSE
-                const baseStatstxt3= pokemonSingle.stats[2].base_stat
-                const stats3 = document.createElement("p");
-                stats3.classList.add("base-stat")
-                stats3.innerText = `Defense: ${baseStatstxt3}`
-                cardPK.appendChild(stats3)
-
-                //PEGANDO SPECIAL-ATTACK
-                const baseStatstxt4= pokemonSingle.stats[3].base_stat
-                const stats4 = document.createElement("p");
-                stats4.classList.add("base-stat")
-                stats4.innerText = `Special-Attack: ${baseStatstxt4}`
-                cardPK.appendChild(stats4)
-
-                //PEGANDO SPECIAL-DEFENSE
-                const baseStatstxt5= pokemonSingle.stats[4].base_stat
-                const stats5 = document.createElement("p");
-                stats5.classList.add("base-stat")
-                stats5.innerText = `Special-Defense: ${baseStatstxt5}`
-                cardPK.appendChild(stats5)
-
-                //PEGANDO SPEED 
-                const baseStatstxt6= pokemonSingle.stats[5].base_stat
-                const stats6 = document.createElement("p");
-                stats6.classList.add("base-stat")
-                stats6.innerText = `Speed: ${baseStatstxt6}`
-                cardPK.appendChild(stats6)
-                console.log(pokemonSingle);
-
-
-                //ADD BTN
-                const btnF = document.createElement("button");
-                btnF.classList.add("btn-add")
-                btnF.innerText = "Add"
-                cardPK.appendChild(btnF)
-                btnF.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    alert("Clicou");
-
-                    alert(pk.name);
-                    const pokemonSalvo = document.querySelector("#pokemon-salvo");
-                    pokemonSalvo.classList.add("pokemon-salvo")
-                   
-                    // const nomeS = document.createElement("h1");
-                    // nomeS.innerText = `${pk.name}`;
-
-                     //Criando o card:
-                    // const cardPK = document.createElement("div");
-                    // cardPK.classList.add("card-salvo");
-                    // pokemonSalvo.appendChild(cardPK);
+                    //Criando o card:
+                    const cardPK = document.createElement("div");
+                    cardPK.classList.add("card");
+                    boxPokemon.appendChild(cardPK);
 
                     //Criando o nome do pokemon: 
-                    // const namePK = document.createElement("h3");
-                    // namePK.classList.add("namePK")
-                    // namePK.innerText = pk.name;
-                    // cardPK.appendChild(namePK);
+                    const namePK = document.createElement("h3");
+                    namePK.classList.add("namePK")
+                    namePK.innerText = pk.name;
+                    cardPK.appendChild(namePK);
 
                     //Criando a imagem do pokemon da frente:
-                    // let imgF = pokemonSingle.sprites.front_default
-                    // const imagePK = document.createElement("div");
-                    // imagePK.innerHTML = `<img src=${imgF}>`;
-                    // cardPK.appendChild(imagePK);
-                
-                    pokemonSalvo.appendChild(cardPK); //talvez seja inutil 
+                    const imgF = pokemonSingle.sprites.front_default
+                    const imagePK = document.createElement("div");
+                    imagePK.innerHTML = `<img src=${imgF}>`;
+                    cardPK.appendChild(imagePK);
 
-                    // if(pk.name == pk.name){
-                    //     cardPK.innerHTML = " "
+                    //PEGANDO O TIPO DO POKEMON:
+                    
+                    const txtpk = pokemonSingle.types[0].type.name
+                    // let txtpk2 = pokemonSingle.types[1].type.name
+
+                    const typePK = document.createElement("p");
+                    typePK.classList.add("type");
+                    typePK.innerText = `Type: ${txtpk}`
+                    // cardPK.appendChild(typePK);
+
+                    if(pokemonSingle.types.length >=2){
+                        const txtpk2 = pokemonSingle.types[1].type.name;
+                        console.log(txtpk2);
+                        typePK.innerText += ` | ${txtpk2}`
+                        // cardPK.appendChild(typePK);
+                    }
+                    cardPK.appendChild(typePK);
+
+                    //EXPERIENCIA BÁSICA:
+                    const baseExptxt= pokemonSingle.base_experience
+                    const exp = document.createElement("p");
+                    exp.classList.add("base-experience")
+                    exp.innerText = `Base Experience: ${baseExptxt}`
+                    cardPK.appendChild(exp);
+
+                    //STATUS BÁSICO
+                    //PEGANDO HP
+                    const baseStatstxt= pokemonSingle.stats[0].base_stat
+                    const stats = document.createElement("p");
+                    stats.classList.add("base-stat")
+                    stats.innerText = `HP: ${baseStatstxt}`
+                    cardPK.appendChild(stats)
+
+
+                    //PEGANDO ATTACK
+                    const baseStatstxt2= pokemonSingle.stats[1].base_stat
+                    const stats2 = document.createElement("p");
+                    stats2.classList.add("base-stat")
+                    stats2.innerText = `Attack: ${baseStatstxt2}`
+                    cardPK.appendChild(stats2)
+
+
+                    //PEGANDO DEFENSE
+                    const baseStatstxt3= pokemonSingle.stats[2].base_stat
+                    const stats3 = document.createElement("p");
+                    stats3.classList.add("base-stat")
+                    stats3.innerText = `Defense: ${baseStatstxt3}`
+                    cardPK.appendChild(stats3)
+
+                    //PEGANDO SPECIAL-ATTACK
+                    const baseStatstxt4= pokemonSingle.stats[3].base_stat
+                    const stats4 = document.createElement("p");
+                    stats4.classList.add("base-stat")
+                    stats4.innerText = `Special-Attack: ${baseStatstxt4}`
+                    cardPK.appendChild(stats4)
+
+                    //PEGANDO SPECIAL-DEFENSE
+                    const baseStatstxt5= pokemonSingle.stats[4].base_stat
+                    const stats5 = document.createElement("p");
+                    stats5.classList.add("base-stat")
+                    stats5.innerText = `Special-Defense: ${baseStatstxt5}`
+                    cardPK.appendChild(stats5)
+
+                    //PEGANDO SPEED 
+                    const baseStatstxt6= pokemonSingle.stats[5].base_stat
+                    const stats6 = document.createElement("p");
+                    stats6.classList.add("base-stat")
+                    stats6.innerText = `Speed: ${baseStatstxt6}`
+                    cardPK.appendChild(stats6)
+                    console.log(pokemonSingle);
+
+
+                    //ADD BTN
+                    const btnF = document.createElement("button");
+                    btnF.classList.add("btn-add")
+                    btnF.innerText = "Add"
+                    cardPK.appendChild(btnF)
+                    btnF.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        // alert("Clicou");
+
+                        // alert(pk.name);
+                        const pokemonSalvo = document.querySelector("#pokemon-salvo");
+                        pokemonSalvo.classList.add("pokemon-salvo")
+                    
+                    
+                    
+                        pokemonSalvo.appendChild(cardPK); //RESPONSÁVEL POR REMOVER O CARD VERMELHO
+
+                        //ESSE CÓDIGO SALVA O CARD ORIGINAL VERMELHO
+                        // localStorage.div = document.getElementById("pokemon-salvo").innerHTML 
                         
-                    // }  
-
-                    localStorage.div += `<div class="card-salvo">
-                        <h3 class="namePK">${pk.name}</h3>
-                        <img src=${imgF}>
-                        <p class="type">Type: ${txtpk}</p>
-                        <p class="base-experience">Base Experience: ${baseExptxt}</p>
-                        <p class="base-stat">HP: ${baseStatstxt}</p>
-                        <p class="base-stat">Attack: ${baseStatstxt2}</p>
-                        <p class="base-stat">Defense: ${baseStatstxt3}</p>
-                        <p class="base-stat">Speacial Attack: ${baseStatstxt4}</p>
-                        <p class="base-stat">Special Defense: ${baseStatstxt5}</p>
-                        <p class="base-stat">Speed: ${baseStatstxt6}</p>
-
-                    </div>`
                     
-                    
-                   
-                   document.getElementById("pokemon-salvo").innerHTML = localStorage.div
-                  
-                   
+                        //ESSE CÓDIGO CRIA UMA CÓPIA DO CARD DEIXANDO ELE AZUL E SALVA, MAS CRIA O UNDEFINED AO LADO:
+                        
+                        localStorage.div += `<div class="card-salvo">
+                            <h3 class="namePK">${pk.name}</h3>
+                            <img src=${imgF}>
+                            <p class="type">Type: ${txtpk}</p>
+                            <p class="base-experience">Base Experience: ${baseExptxt}</p>
+                            <p class="base-stat">HP: ${baseStatstxt}</p>
+                            <p class="base-stat">Attack: ${baseStatstxt2}</p>
+                            <p class="base-stat">Defense: ${baseStatstxt3}</p>
+                            <p class="base-stat">Speacial Attack: ${baseStatstxt4}</p>
+                            <p class="base-stat">Special Defense: ${baseStatstxt5}</p>
+                            <p class="base-stat">Speed: ${baseStatstxt6}</p>
+
+                        </div>`
 
                     
-                    // localStorage.nome += `<h3>${pk.name}</h3>`
-                    // localStorage.imagem += `<img src=${imgF}>`
+            
+                        
+
+                        
+                    if(localStorage.div){
+                        document.getElementById("pokemon-salvo").innerHTML = localStorage.div
+                    }
+                    // document.getElementById("pokemon-salvo").innerHTML = localStorage.div
                     
-                    // document.querySelector(".card-salvo").innerHTML += localStorage.nome
-                    // document.querySelector(".card-salvo").innerHTML += localStorage.imagem
-                  
+                    
+
+                        
+                        // localStorage.nome += `<h3>${pk.name}</h3>`
+                        // localStorage.imagem += `<img src=${imgF}>`
+                        
+                        // document.querySelector(".card-salvo").innerHTML += localStorage.nome
+                        // document.querySelector(".card-salvo").innerHTML += localStorage.imagem
+                    
+                    })
+                    
+
+                }).catch( (err) => {
+                    console.log(err)
                 })
-                  
 
-            }).catch( (err) => {
-                console.log(err)
             })
-
         })
-    })
-
-    
 
 
-    }, 100)
+        }, 1000)
 
 
-    
-    
+        
+        
+    }
+    // document.querySelector(".card-salvo").innerHTML += localStorage.nome
+    // document.querySelector(".card-salvo").innerHTML += localStorage.imagem
+
+    if(localStorage.div){
+        document.getElementById("pokemon-salvo").innerHTML = localStorage.div
+
 }
-// document.querySelector(".card-salvo").innerHTML += localStorage.nome
-// document.querySelector(".card-salvo").innerHTML += localStorage.imagem
-
-document.getElementById("pokemon-salvo").innerHTML = localStorage.div
 
 
 // document.querySelector("#pokemon-salvo").innerHTML += localStorage.nome
