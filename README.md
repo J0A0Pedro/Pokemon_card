@@ -1,5 +1,5 @@
 # Pokemon_card
-
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
 ![Pokemon Card - Google Chrome 2022-11-13 17-07-37](https://user-images.githubusercontent.com/83146122/201542182-88a4b732-c83e-4d4c-adf8-40f7ca4f34b4.gif)
 
